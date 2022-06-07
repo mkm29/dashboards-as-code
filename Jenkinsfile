@@ -7,7 +7,6 @@ def GetBranch() {
 }
 
 node {
-  agent any
   stage('Initialization') {
     sh 'echo "Initialization"'
     String branch = GetBranch()

@@ -3,7 +3,7 @@ def UploadFile(String file_name) {
 }
 
 def GetBranch() {
-  return $GIT_BRANCH.split('/')[1]
+  return env.GIT_BRANCH.split('/')[1]
 }
 
 node {

@@ -1,5 +1,5 @@
-def getGitBranchName() {
-    return scm.branches[1].name
+def upload_file(file_name) {
+  echo "Uploading $file_name"
 }
 
 pipeline {
@@ -22,7 +22,7 @@ pipeline {
           # if file is a JSON file
           if [[ $file == *.json ]]; then
             # print out the file name
-            echo "File: $file"
+            upload_file($file)
           fi
         done
         '''

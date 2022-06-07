@@ -17,13 +17,13 @@ pipeline {
         echo '****************************************************'
         sh '''
         files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`
-        echo "Files changed: $files"
+        # loop over all JSON files in files
         for file in $files; do
-        # skip Jenkinsfile
-        if [ "$file" != "Jenkinsfile" ]; then
+          # if file is a JSON file
+          if [[ $file == *.json ]]; then
+            # print out the file name
             echo "File: $file"
-            echo "----------------------------------------------------"
-        fi
+          fi
         done
         '''
       }

@@ -12,7 +12,7 @@ pipeline {
     stage('Initialization') {
       steps {
         sh 'echo "Initialization"'
-        String branch = GetBranch()
+        def branch = GetBranch()
         echo "Branch: $branch"
         UploadFile('file1.txt')
       }

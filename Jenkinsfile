@@ -8,11 +8,13 @@ def GetBranch() {
 
 pipeline {
   agent any
-  stage('Initialization') {
-    sh 'echo "Initialization"'
-    String branch = GetBranch()
-    echo "Branch: $branch"
-    UploadFile('file1.txt')
+  stages {
+    stage('Initialization') {
+      sh 'echo "Initialization"'
+      String branch = GetBranch()
+      echo "Branch: $branch"
+      UploadFile('file1.txt')
+    }
   }
 }
 

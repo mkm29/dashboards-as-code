@@ -15,7 +15,7 @@ pipeline {
         echo "Current git branch: ${GIT_BRANCH.split('/')[1]}"
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
         echo '****************************************************'
-        sh '''
+        sh(returnStdout: true, script: '''#!/bin/bash)
         for file in `git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`; do
           if [[ $file == *.json ]]; then
             echo "Uploading $file"
@@ -23,7 +23,7 @@ pipeline {
             echo "Skipping $file"
           fi
         done
-        '''
+        '''.stripIndent())
       }
     }
   }

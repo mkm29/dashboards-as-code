@@ -1,4 +1,4 @@
-def upload_file(file_name) {
+def upload_file(String file_name) {
   echo "Uploading $file_name"
 }
 
@@ -18,9 +18,7 @@ pipeline {
         sh '''files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`
         for file in `echo $files | grep json`; do
         upload_file $file
-        done
-        
-        '''
+        done'''
       }
     }
   }

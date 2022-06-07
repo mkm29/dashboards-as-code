@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        printenv
+        sh 'printenv'
       }
     }
   }

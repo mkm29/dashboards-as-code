@@ -8,11 +8,17 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
+        echo '****************************************************'
+        sh 'env | grep -i git'
         // print out the current git branch
+        echo '****************************************************'
         echo "Current git branch: ${GIT_BRANCH.split('/')[1]}"
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
-        sh '''echo $(git diff)'''
-        sh 'git log'
+        echo '****************************************************'
+        sh 'git diff'
+        echo '****************************************************'
+        sh 'git log -p'
+        echo '****************************************************'
       }
     }
   }

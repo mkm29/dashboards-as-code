@@ -23,6 +23,7 @@ pipeline {
             else
             echo "Skipping file $file"
             fi
+            done
         '''.stripIndent())
       }
     }

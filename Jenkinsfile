@@ -15,8 +15,9 @@ pipeline {
         echo "Current git branch: ${GIT_BRANCH.split('/')[1]}"
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
         echo '****************************************************'
-        sh 'files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`'
-        sh 'echo $files'
+        sh '''files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`
+        echo $files
+        '''
         sh(returnStdout: true, script: '''#!/bin/bash
             files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT} | grep *.json`
             echo "Changed files = $files"

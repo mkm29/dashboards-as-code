@@ -15,12 +15,8 @@ pipeline {
         echo "Current git branch: ${GIT_BRANCH.split('/')[1]}"
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
         echo '****************************************************'
-        sh '''files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT} | grep json`
-        if [ -z "$files" ]; then
-        echo No JSON files to upload
-        return 0
-        fi
-        for file in $files; do
+        sh '''files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`
+        for file in `echo $files | grep json`; do
         upload_file $file
         done
         

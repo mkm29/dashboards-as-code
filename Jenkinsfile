@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        sh 'echo $(getGitBranchName)'
+        getGitBranchName()
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
       }
     }

@@ -16,7 +16,10 @@ pipeline {
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
         echo '****************************************************'
         sh(returnStdout: true, script: '''#!/bin/bash
-            for file in `git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT} | grep json`; do
+            files=`git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT} | grep json`
+            echo $files
+            echo ****************************************************
+            for file in $files; do
             echo "Uploading $file"
             done
         '''.stripIndent())

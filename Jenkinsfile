@@ -12,8 +12,8 @@ pipeline {
         // echo ""
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
         sh '''
-            Current git branch: ${GIT_BRANCH.split('/')[1]}
-            echo "Changed files"
+            echo "Current git branch: ${GIT_BRANCH.split('/')[1]}"
+            echo Changed files
             git diff
         '''
       }

@@ -3,10 +3,11 @@ def UploadFile(String file_name) {
 }
 
 def GetBranch() {
-  return env.GIT_BRANCH.split('/')[1]
+  return ${GIT_BRANCH}.split('/')[1]
 }
 
-node {
+pipeline {
+  agent any
   stage('Initialization') {
     sh 'echo "Initialization"'
     String branch = GetBranch()

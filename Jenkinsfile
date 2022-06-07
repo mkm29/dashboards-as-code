@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        getGitBranchName()
+        // print out the current git branch
+        echo "Current git branch: ${{getGitBranchName()}}"
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
       }
     }

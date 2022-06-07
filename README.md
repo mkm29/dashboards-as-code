@@ -1,2 +1,1 @@
-# Sample Grafana DaC Repo
-
+# Sample Grafana DaC Repository

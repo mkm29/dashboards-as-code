@@ -21,7 +21,6 @@ pipeline {
         for file in $files; do
           # if file is a JSON file
           if [[ $file == *.json ]]; then
-            # print out the file name
             upload_file $file
           fi
         done

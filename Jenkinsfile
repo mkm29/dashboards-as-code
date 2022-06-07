@@ -15,10 +15,9 @@ pipeline {
         echo "Current git branch: ${GIT_BRANCH.split('/')[1]}"
         // branch is in GIT_BRANCH environment variable (eg origin/dev)
         echo '****************************************************'
-        sh 'git diff'
+        sh 'git log -p ${GIT_COMMIT}'
         echo '****************************************************'
-        sh 'git log -p'
-        echo '****************************************************'
+        sh 'git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}'
       }
     }
   }

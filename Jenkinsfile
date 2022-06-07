@@ -18,7 +18,7 @@ pipeline {
         sh(returnStdout: true, script: '''#!/bin/bash
             for $file in `git diff --name-only ${GIT_PREVIOUS_SUCCESSFUL_COMMIT} ${GIT_COMMIT}`; do
             if [ $file == *.json ];then
-            echo ""Uploading $file"
+            echo "Uploading $file"
             else
             echo "Skipping file $file"
             fi

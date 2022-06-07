@@ -1,5 +1,5 @@
 def getGitBranchName() {
-    return scm.branches[0].name
+    return scm.branches[1].name
 }
 
 pipeline {

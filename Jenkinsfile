@@ -10,10 +10,12 @@ pipeline {
   agent any
   stages {
     stage('Initialization') {
-      sh 'echo "Initialization"'
-      String branch = GetBranch()
-      echo "Branch: $branch"
-      UploadFile('file1.txt')
+      steps {
+        sh 'echo "Initialization"'
+        String branch = GetBranch()
+        echo "Branch: $branch"
+        UploadFile('file1.txt')
+      }
     }
   }
 }
